@@ -49,3 +49,8 @@ ij_kotlin_name_count_to_use_star_import_for_members = 2147483647
 indent_size = 2
 ij_continuation_indent_size = 2
 tab_width = 2
+
+[*.yml]
+indent_size = 2
+ij_continuation_indent_size = 2
+tab_width = 2
