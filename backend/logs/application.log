@@ -1,0 +1,1 @@
+{"@timestamp":"2023-11-19T14:51:54.611900037+05:00","message":"transfer operation","operation":{"cardFromNumber":"123","cardFromValidTill":"456","cardFromCVV":"789","cardToNumber":"1011","amount":{"value":1000,"currency":"RUB"}}}
