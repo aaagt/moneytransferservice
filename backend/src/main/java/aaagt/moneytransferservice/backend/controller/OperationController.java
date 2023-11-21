@@ -1,6 +1,7 @@
 package aaagt.moneytransferservice.backend.controller;
 
-import aaagt.moneytransferservice.backend.dto.TransferOperationDto;
+import aaagt.moneytransferservice.backend.dto.TransferOperationRequestDto;
+import aaagt.moneytransferservice.backend.dto.TransferResponseDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +17,9 @@ public class OperationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(OperationController.class);
 
     @PostMapping("/transfer")
-    public String transfer(@RequestBody TransferOperationDto operation) {
+    public TransferResponseDto transfer(@RequestBody TransferOperationRequestDto operation) {
         LOGGER.info("transfer operation", kv("operation", operation));
-        return "{\"operationId\":\"1\"}";
+        return new TransferResponseDto("1");
     }
 
     @PostMapping("/confirmOperation")

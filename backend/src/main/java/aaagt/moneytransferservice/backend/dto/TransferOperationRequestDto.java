@@ -1,13 +1,13 @@
 package aaagt.moneytransferservice.backend.dto;
 
-public class TransferOperationDto {
+public class TransferOperationRequestDto {
     private String cardFromNumber;
     private String cardFromValidTill;
     private String cardFromCVV;
     private String cardToNumber;
     private AmountDto amount;
 
-    public TransferOperationDto(
+    public TransferOperationRequestDto(
             String cardFromNumber,
             String cardFromValidTill,
             String cardFromCVV,

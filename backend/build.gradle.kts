@@ -16,12 +16,13 @@ java {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
-    //implementation("ch.qos.logback:logback-core:1.4.11")
-    // https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder
     implementation("net.logstash.logback:logstash-logback-encoder:7.4")
 
-
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.testcontainers:junit-jupiter:1.15.1")
+    testImplementation("com.jayway.jsonpath:json-path:2.8.0")
+    testImplementation("org.hamcrest:hamcrest-library:2.2")
+
 }
 
 
