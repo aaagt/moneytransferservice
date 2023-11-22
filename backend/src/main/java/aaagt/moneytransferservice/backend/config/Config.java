@@ -1,24 +1,31 @@
 package aaagt.moneytransferservice.backend.config;
 
-import org.springframework.context.annotation.Bean;
+import aaagt.moneytransferservice.backend.resolver.TransferResponseDtoResolver;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
-public class Config {
+import java.util.List;
 
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
-            }
-        };
+@Configuration
+public class Config implements WebMvcConfigurer {
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
     }
 
-
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+        resolvers.add(new TransferResponseDtoResolver(objectMapper));
+    }
 }
 

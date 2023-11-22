@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import static net.logstash.logback.argument.StructuredArguments.kv;
@@ -17,7 +16,7 @@ public class OperationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(OperationController.class);
 
     @PostMapping("/transfer")
-    public TransferResponseDto transfer(@RequestBody TransferOperationRequestDto operation) {
+    public TransferResponseDto transfer(TransferOperationRequestDto operation) {
         LOGGER.info("transfer operation", kv("operation", operation));
         return new TransferResponseDto("1");
     }
@@ -35,7 +34,7 @@ public class OperationController {
 
     @GetMapping("/confirmOperation")
     public String c() {
-        return "transfer";
+        return "confirmOperation";
     }
 
     @GetMapping("/")
