@@ -20,12 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class TransferResponseDtoResolver implements HandlerMethodArgumentResolver {
+public class TransferOperationRequestDtoResolver implements HandlerMethodArgumentResolver {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(TransferResponseDtoResolver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TransferOperationRequestDtoResolver.class);
     private final ObjectMapper objectMapper;
 
-    public TransferResponseDtoResolver(ObjectMapper objectMapper) {
+    public TransferOperationRequestDtoResolver(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 

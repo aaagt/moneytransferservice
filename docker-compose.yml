@@ -5,8 +5,16 @@ services:
     build: ./backend
     ports:
       - "8080:8080"
+    environment:
+      - LOG_FILE_NAME=backend1
+    volumes:
+      - ./backend/logs:/logs
   backend2:
     build: ./backend
+    environment:
+      - LOG_FILE_NAME=backend2
+    volumes:
+      - ./backend/logs:/logs
 
   frontend1:
     build: ./frontend

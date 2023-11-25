@@ -23,6 +23,7 @@ dependencies {
     testImplementation("org.testcontainers:junit-jupiter:1.15.1")
     testImplementation("com.jayway.jsonpath:json-path:2.8.0")
     testImplementation("org.hamcrest:hamcrest-library:2.2")
+    testImplementation("org.mockito:mockito-core:5.7.0")
 
 }
 

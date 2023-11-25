@@ -1,6 +1,6 @@
 package aaagt.moneytransferservice.backend.config;
 
-import aaagt.moneytransferservice.backend.resolver.TransferResponseDtoResolver;
+import aaagt.moneytransferservice.backend.resolver.TransferOperationRequestDtoResolver;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class Config implements WebMvcConfigurer {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(new TransferResponseDtoResolver(objectMapper));
+        resolvers.add(new TransferOperationRequestDtoResolver(objectMapper));
     }
 }
 

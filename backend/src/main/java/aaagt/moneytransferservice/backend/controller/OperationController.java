@@ -1,45 +1,51 @@
 package aaagt.moneytransferservice.backend.controller;
 
+import aaagt.moneytransferservice.backend.dto.ConfirmOperationRequestDto;
 import aaagt.moneytransferservice.backend.dto.TransferOperationRequestDto;
 import aaagt.moneytransferservice.backend.dto.TransferResponseDto;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
+import aaagt.moneytransferservice.backend.exception.ErrorInputData;
+import aaagt.moneytransferservice.backend.model.Operation;
+import aaagt.moneytransferservice.backend.service.OperationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static net.logstash.logback.argument.StructuredArguments.kv;
+import java.util.Optional;
 
 @RestController
 public class OperationController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OperationController.class);
+    @Autowired
+    private final OperationService service;
+
+    public OperationController(OperationService service) {
+        this.service = service;
+    }
 
     @PostMapping("/transfer")
-    public TransferResponseDto transfer(TransferOperationRequestDto operation) {
-        LOGGER.info("transfer operation", kv("operation", operation));
-        return new TransferResponseDto("1");
+    public TransferResponseDto transfer(TransferOperationRequestDto operationDto) {
+        return Optional.of(operationFromTransferOperationRequestDto(operationDto))
+                .flatMap(service::transfer)
+                .map(TransferResponseDto::new)
+                .orElseThrow(() -> new ErrorInputData("cant perform operation", 2));
     }
 
     @PostMapping("/confirmOperation")
-    public String confirmOperation() {
-        //LOGGER.info("transfer operation", kv("confirmOperation", operation));
-        return "{\"operationId\":\"1\"}";
+    public String confirmOperation(ConfirmOperationRequestDto requestDto) {
+        return "{\"operationId\":\"%s\"}".formatted(requestDto.getOperationId());
     }
 
-    @GetMapping("/transfer")
-    public String t() {
-        return "transfer";
-    }
-
-    @GetMapping("/confirmOperation")
-    public String c() {
-        return "confirmOperation";
-    }
-
-    @GetMapping("/")
-    public String home() {
-        return "hello";
+    private Operation operationFromTransferOperationRequestDto(TransferOperationRequestDto operationDto) {
+        return new Operation(
+                operationDto.getCardFromNumber(),
+                operationDto.getCardFromValidTill(),
+                operationDto.getCardFromCVV(),
+                operationDto.getCardToNumber(),
+                new Operation.Amount(
+                        operationDto.getAmount().getValue(),
+                        operationDto.getAmount().getCurrency()
+                )
+        );
     }
 
 }
