@@ -1,6 +1,1 @@
-{"@timestamp":"2023-11-25T18:42:10.781652921+05:00","message":"transfer operation","operation":{"cardFromNumber":"123","cardFromValidTill":"456","cardFromCVV":"789","cardToNumber":"1011","amount":{"value":1000,"currency":"RUB"}}}
-{"@timestamp":"2023-11-25T18:43:06.353670727+05:00","message":"transfer operation","operation":{"cardFromNumber":"123","cardFromValidTill":"456","cardFromCVV":"789","cardToNumber":"1011","amount":{"value":1000,"currency":"RUB"}}}
-{"@timestamp":"2023-11-25T19:03:07.739904516+05:00","message":"transfer operation","operation":{"cardFromNumber":"123","cardFromValidTill":"456","cardFromCVV":"789","cardToNumber":"1011","amount":{"value":1000,"currency":"RUB"}}}
-{"@timestamp":"2023-11-25T19:04:38.095523384+05:00","message":"transfer operation","operation":null}
-{"@timestamp":"2023-11-25T19:09:08.941216524+05:00","message":"transfer operation","operation":{"cardFromNumber":"1234","cardFromValidTill":"456","cardFromCVV":"789","cardToNumber":"1011","amount":{"value":1000,"currency":"RUB"}}}
-{"@timestamp":"2023-11-25T14:19:19.173998265Z","message":"transfer operation","operation":{"cardFromNumber":"1234413124345544","cardFromValidTill":"12/23","cardFromCVV":"123","cardToNumber":"1234565675635423","amount":{"value":23400,"currency":"RUR"}}}
+{"@timestamp":"2023-11-26T17:46:56.619072571Z","message":"transfer operation","operation":{"cardFromNumber":"1231241414143432","cardFromValidTill":"12/23","cardFromCVV":"313","cardToNumber":"1234124412432141","amount":{"value":123421400,"currency":"RUR"}}}

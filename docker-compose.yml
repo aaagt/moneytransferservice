@@ -2,19 +2,23 @@ version: "3.9"
 
 services:
   backend1:
-    build: ./backend
+    build:
+      context: ./
+      dockerfile: ./backend/Dockerfile
     ports:
       - "8080:8080"
     environment:
       - LOG_FILE_NAME=backend1
     volumes:
-      - ./backend/logs:/logs
+      - ./backend/logs:/app/logs
   backend2:
-    build: ./backend
+    build:
+      context: ./
+      dockerfile: ./backend/Dockerfile
     environment:
       - LOG_FILE_NAME=backend2
     volumes:
-      - ./backend/logs:/logs
+      - ./backend/logs:/app/logs
 
   frontend1:
     build: ./frontend

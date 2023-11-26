@@ -9,16 +9,10 @@
 
 ## Запуск
 
-1. Соберите приложение бэкенда в папку:
-
-```
-backend/build/libs/backend-1.0-SNAPSHOT.jar
-```
-
-2. Запустите docker compose
+1. Запустите docker compose
 
 ```bash
 docker compose up --build
 ```
 
-3. Приложение будет доступно по адресу: http://localhost/card-transfer/
+2. Приложение будет доступно по адресу: http://localhost/card-transfer/
