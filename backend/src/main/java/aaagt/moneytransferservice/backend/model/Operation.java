@@ -53,6 +53,17 @@ public class Operation {
         this.cardToNumber = cardToNumber;
     }
 
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "cardFromNumber='" + cardFromNumber + '\'' +
+                ", cardFromValidTill='" + cardFromValidTill + '\'' +
+                ", cardFromCVV='" + cardFromCVV + '\'' +
+                ", cardToNumber='" + cardToNumber + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
+
     public Amount getAmount() {
         return amount;
     }
@@ -68,6 +79,14 @@ public class Operation {
         public Amount(int value, String currency) {
             this.value = value;
             this.currency = currency;
+        }
+
+        @Override
+        public String toString() {
+            return "Amount{" +
+                    "value=" + value +
+                    ", currency='" + currency + '\'' +
+                    '}';
         }
 
         public int getValue() {

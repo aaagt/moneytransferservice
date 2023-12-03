@@ -16,7 +16,6 @@ public class Config implements WebMvcConfigurer {
     @Autowired
     private ObjectMapper objectMapper;
 
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")

@@ -9,6 +9,14 @@ public class ConfirmOperationRequestDto {
         this.code = code;
     }
 
+    @Override
+    public String toString() {
+        return "ConfirmOperationRequestDto{" +
+                "operationId='" + operationId + '\'' +
+                ", code='" + code + '\'' +
+                '}';
+    }
+
     public String getOperationId() {
         return operationId;
     }

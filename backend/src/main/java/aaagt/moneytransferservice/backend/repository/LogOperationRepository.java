@@ -1,6 +1,5 @@
 package aaagt.moneytransferservice.backend.repository;
 
-import aaagt.moneytransferservice.backend.controller.OperationController;
 import aaagt.moneytransferservice.backend.model.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +12,7 @@ import static net.logstash.logback.argument.StructuredArguments.kv;
 @Repository
 public class LogOperationRepository implements OperationRepository {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OperationController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LogOperationRepository.class);
 
     @Override
     public String transfer(Operation operation) {

@@ -10,15 +10,16 @@ services:
     environment:
       - LOG_FILE_NAME=backend1
     volumes:
-      - ./backend/logs:/app/logs
-  backend2:
-    build:
-      context: ./
-      dockerfile: ./backend/Dockerfile
-    environment:
-      - LOG_FILE_NAME=backend2
-    volumes:
-      - ./backend/logs:/app/logs
+      - ./logs:/app/logs
+
+  #  backend2:
+  #    build:
+  #      context: ./
+  #      dockerfile: ./backend/Dockerfile
+  #    environment:
+  #      - LOG_FILE_NAME=backend2
+  #    volumes:
+  #      - ./logs:/app/logs
 
   frontend1:
     build: ./frontend
@@ -33,7 +34,7 @@ services:
       - "80:8000"
     depends_on:
       - backend1
-      - backend2
+      #      - backend2
       - frontend1
 
 volumes:
